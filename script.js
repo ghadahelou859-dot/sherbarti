@@ -147,7 +147,6 @@ async function rpc(name, candidates) {
       method: "POST",
       headers: {
         apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(body)
@@ -175,7 +174,7 @@ function oneRow(value) {
 function paintLike(stats) {
   const row = oneRow(stats);
   const count = row.likes_count ?? row.like_count ?? row.total_likes ?? row.likes ?? 0;
-  const liked = Boolean(row.liked ?? row.has_liked ?? row.is_liked ?? row.user_liked);
+  const liked = Boolean(row.liked ?? row.has_liked ?? row.is_liked ?? row.user_liked ?? row.liked_by_me);
   likeCount.textContent = String(count);
   likeButton.classList.toggle("liked", liked);
   likeButton.querySelector("span").textContent = liked ? "♥" : "♡";
@@ -235,14 +234,12 @@ document.getElementById("feedbackForm").addEventListener("submit", async event =
   feedbackStatus.textContent = "جاري الحفظ…";
 
   const bodies = [
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author: author, p_body: opinion },
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_guest_name: author, p_opinion_text: opinion },
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion: opinion },
-    { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
-    { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion_text: opinion },
-    { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, author_name: author, opinion_text: opinion },
-    { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, name: author, opinion }
+    {
+      p_slug: INVITATION_SLUG,
+      p_visitor_key: visitorKey,
+      p_display_name: author,
+      p_opinion_text: opinion
+    }
   ];
 
   try {
