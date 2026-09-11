@@ -3,3 +3,10 @@
 .like-counter{position:fixed;z-index:90;left:max(12px,calc((100vw - 480px)/2 + 12px));top:50%;transform:translateY(-50%);display:grid;place-items:center;gap:2px;min-width:48px;min-height:62px;padding:8px;border:1px solid #ffffffaa;border-radius:999px;background:#0d45a0dd;color:#fff;box-shadow:0 8px 24px #001b4a55;backdrop-filter:blur(8px);cursor:pointer}.like-counter span{font-size:24px;line-height:1}.like-counter b{font-size:12px}.like-counter.liked{background:#e87495}.like-counter:disabled{opacity:.65}.rating-stars{position:absolute;z-index:3;left:25%;right:25%;top:43.2%;height:7%;display:flex;direction:ltr;align-items:center;justify-content:center;gap:3px}.rating-stars button{padding:0;border:0;background:transparent;color:#b9c7d9;font-size:clamp(22px,7vw,31px);line-height:1;text-shadow:0 1px 2px #fff;cursor:pointer}.rating-stars button.selected{color:#f3bf3e}.feedback-form-v2 small{position:absolute;left:-15%;right:-15%;top:102%;color:#0d45a0;text-align:center;font-size:11px;font-weight:700}.feedback-form-v2 button:disabled{pointer-events:none}
 
 .music-control{position:fixed;z-index:91;right:max(12px,calc((100vw - 480px)/2 + 12px));bottom:max(16px,env(safe-area-inset-bottom));display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid #ffffffaa;border-radius:50%;background:#0d45a0dd;color:#fff;box-shadow:0 8px 24px #001b4a55;backdrop-filter:blur(8px);font-family:Georgia,serif;font-size:22px;cursor:pointer}.music-control.playing{animation:musicPulse 1.8s ease-in-out infinite}@keyframes musicPulse{50%{transform:scale(1.08)}}
+
+/* التقييم: تغطية القلب والكلمة المطبوعة وإظهار النجوم فقط */
+.rating-stars{left:24%!important;right:24%!important;top:43.15%!important;height:7.7%!important;padding:0 8px;border-radius:999px;background:#fff!important;overflow:hidden}
+.rating-stars button{position:relative;z-index:2;color:#c9d2e0!important;font-size:clamp(23px,7.4vw,32px)!important}
+.rating-stars button.selected{color:#f3b72f!important}
+/* مطابقة كل منطقة ضغط مع الأيقونة الظاهرة: Instagram ثم TikTok ثم Snapchat */
+.social-links-v2{direction:ltr!important}
