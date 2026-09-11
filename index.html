@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b2550">
+  <meta name="description" content="دعوة حفل العروس ياسمين — 7 يوليو 2027، الساعة 7 مساءً">
+  <title>Yasmeen’s Bridal Shower | 07.07.2027</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="invitation-shell">
+    <div class="intro-layer" id="intro">
+      <video id="introVideo" src="intro-v3.mp4" poster="intro-poster-v3.webp" preload="metadata" playsinline></video>
+      <button class="open-invitation" id="openInvitation" type="button">افتحي الدعوة</button>
+      <button class="sound-button" id="soundButton" type="button" aria-label="إغلاق صوت الفيديو" hidden>🔊</button>
+    </div>
+
+    <div class="pages" id="pages" hidden>
+      <section class="invite-page"><img src="cover.webp" alt="غلاف حفل العروس ياسمين"></section>
+
+      <section class="invite-page">
+        <img src="countdown.webp" alt="العد التنازلي">
+        <div class="countdown-values" aria-label="العد التنازلي">
+          <b id="days"></b><b id="hours"></b><b id="minutes"></b><b id="seconds"></b>
+        </div>
+      </section>
+
+      <section class="invite-page"><img src="details.webp" alt="تفاصيل الحفل"></section>
+      <section class="invite-page"><img src="dress-code.webp" alt="ألوان وإكسسوارات الحفل"></section>
+
+      <section class="invite-page">
+        <img src="scratch.webp" alt="اكشطي واربحي">
+        <div class="scratch-zone">
+          <div class="scratch-result" id="scratchResult">هدية مخبأة إلكِ</div>
+          <canvas id="scratchCanvas" aria-label="اكشطي للكشف عن النتيجة"></canvas>
+        </div>
+      </section>
+
+      <section class="invite-page">
+        <img src="location.webp" alt="موقع الحفل">
+        <a class="hotspot location-hotspot" href="https://maps.app.goo.gl/VxNcRx2HqjF3ckTH8" target="_blank" rel="noreferrer" aria-label="افتحي موقع الحفل على الخريطة"></a>
+      </section>
+
+      <section class="invite-page">
+        <img src="rsvp.webp" alt="تأكيد الحضور">
+        <a class="hotspot rsvp-hotspot" href="https://wa.me/970598494977?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%A4%D9%83%D8%AF%20%D8%AD%D8%B6%D9%88%D8%B1%D9%8A%20Bridal%20Shower%20%D9%8A%D8%A7%D8%B3%D9%85%D9%8A%D9%86%20%F0%9F%92%99%F0%9F%8D%8B" target="_blank" rel="noreferrer" aria-label="تأكيد الحضور عبر واتساب"></a>
+      </section>
+
+      <section class="invite-page">
+        <img src="photos.webp" alt="شاركونا صوركم">
+        <a class="qr-link" href="https://photos.app.goo.gl/XWxAXE2kXAxZX9946" target="_blank" rel="noreferrer" aria-label="افتحي ألبوم الصور"><img src="photos-qr.png" alt="رمز ألبوم صور الحفل"></a>
+      </section>
+
+      <section class="invite-page">
+        <img src="feedback-v2.webp" alt="شاركينا رأيك">
+        <button class="like-hotspot" id="likeButton" type="button" aria-label="أعجبني"></button>
+        <form class="feedback-form-v2" id="feedbackForm">
+          <textarea id="feedback" placeholder="اكتبي رأيكِ هنا…" aria-label="رأيك في الكرت"></textarea>
+          <button type="submit" aria-label="إرسال الرأي عبر واتساب"></button>
+        </form>
+        <nav class="social-links-v2" aria-label="مواقع التواصل">
+          <a href="https://www.instagram.com/ghada.invitations?igsi=dndkd3lhMmJ0M2E5&amp;utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram"></a>
+          <a href="https://www.tiktok.com/@ghada.invitations?_r=1&amp;_t=ZS-99Ru8uGvd10" target="_blank" rel="noreferrer" aria-label="TikTok"></a>
+          <a href="https://snapchat.com/t/n8AEKXRm" target="_blank" rel="noreferrer" aria-label="Snapchat"></a>
+        </nav>
+      </section>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
