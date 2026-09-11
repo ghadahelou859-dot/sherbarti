@@ -6,10 +6,11 @@
   <meta name="theme-color" content="#0b2550">
   <meta name="description" content="دعوة حفل العروس ياسمين — 7 يوليو 2027، الساعة 7 مساءً">
   <title>Yasmeen’s Bridal Shower | 07.07.2027</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <main class="invitation-shell">
+    <audio id="backgroundMusic" src="medina-lights.mp3" loop preload="metadata"></audio>
     <div class="intro-layer" id="intro">
       <video id="introVideo" src="intro-v3.mp4" poster="intro-poster-v3.webp" preload="metadata" playsinline></video>
       <button class="open-invitation" id="openInvitation" type="button">افتحي الدعوة</button>
@@ -62,7 +63,7 @@
           <button type="button" data-rating="5" aria-label="خمس نجوم">★</button>
         </div>
         <form class="feedback-form-v2" id="feedbackForm">
-          <textarea id="feedback" placeholder="شو حابين تشوفوا أو نضيف بالكروت القادمة؟" aria-label="رأيك واقتراحك"></textarea>
+          <textarea id="feedback" placeholder="حبيتِ التجربة؟ شاركينا فكرتك… يمكن تكون هي الكرت الجاي 💙" aria-label="رأيك واقتراحك"></textarea>
           <button type="submit" aria-label="حفظ التقييم والرأي"></button>
           <small id="feedbackStatus" role="status"></small>
         </form>
@@ -74,11 +75,13 @@
       </section>
     </div>
 
+    <button class="music-control" id="musicControl" type="button" aria-label="إيقاف الموسيقى" hidden>♫</button>
+
     <button class="like-counter" id="likeButton" type="button" aria-label="أعجبني" aria-pressed="false" hidden>
       <span aria-hidden="true">♡</span>
       <b id="likeCount">0</b>
     </button>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
