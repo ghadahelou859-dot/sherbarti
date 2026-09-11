@@ -8,6 +8,8 @@ const video = document.getElementById("introVideo");
 const openButton = document.getElementById("openInvitation");
 const soundButton = document.getElementById("soundButton");
 const pages = document.getElementById("pages");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicControl = document.getElementById("musicControl");
 
 openButton.addEventListener("click", async () => {
   openButton.hidden = true;
@@ -25,6 +27,33 @@ video.addEventListener("ended", () => {
   pages.hidden = false;
   scrollTo(0, 0);
   requestAnimationFrame(paintScratch);
+  backgroundMusic.volume = 0.55;
+  backgroundMusic.play().then(() => {
+    musicControl.hidden = false;
+    musicControl.classList.add("playing");
+  }).catch(() => {
+    musicControl.hidden = false;
+    musicControl.classList.remove("playing");
+    musicControl.textContent = "♪";
+  });
+});
+
+musicControl.addEventListener("click", async () => {
+  if (backgroundMusic.paused) {
+    try {
+      await backgroundMusic.play();
+      musicControl.textContent = "♫";
+      musicControl.classList.add("playing");
+      musicControl.setAttribute("aria-label", "إيقاف الموسيقى");
+    } catch (error) {
+      console.error("Music playback error:", error);
+    }
+  } else {
+    backgroundMusic.pause();
+    musicControl.textContent = "♪";
+    musicControl.classList.remove("playing");
+    musicControl.setAttribute("aria-label", "تشغيل الموسيقى");
+  }
 });
 
 function updateCountdown() {
@@ -207,10 +236,12 @@ document.getElementById("feedbackForm").addEventListener("submit", async event =
 
   const bodies = [
     { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_guest_name: author, p_opinion: opinion },
+    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author: author, p_body: opinion },
+    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_guest_name: author, p_opinion_text: opinion },
     { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion: opinion },
-    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_text: opinion },
     { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
+    { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion_text: opinion },
+    { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, author_name: author, opinion_text: opinion },
     { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, name: author, opinion }
   ];
 
