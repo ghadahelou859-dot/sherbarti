@@ -206,9 +206,12 @@ document.getElementById("feedbackForm").addEventListener("submit", async event =
   feedbackStatus.textContent = "جاري الحفظ…";
 
   const bodies = [
+    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
+    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_guest_name: author, p_opinion: opinion },
     { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion: opinion },
-    { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_author_name: author, p_opinion: opinion },
-    { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, author_name: author, opinion }
+    { p_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_text: opinion },
+    { p_invitation_slug: INVITATION_SLUG, p_visitor_key: visitorKey, p_name: author, p_opinion: opinion },
+    { invitation_slug: INVITATION_SLUG, visitor_key: visitorKey, name: author, opinion }
   ];
 
   try {
